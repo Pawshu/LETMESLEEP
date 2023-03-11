@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Mutsu.gd" type="Script" id=1]
+[ext_resource path="res://Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/Mutsu.png" type="Texture" id=2]
 
 [sub_resource type="ImageTexture" id=3]
+
+[sub_resource type="CanvasItemMaterial" id=7]
 
 [sub_resource type="RectangleShape2D" id=6]
 
@@ -16,7 +18,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 513, 10 )
+extents = Vector2( 256, 10 )
 
 [node name="Tutorial" type="Node2D"]
 
@@ -25,36 +27,37 @@ margin_right = 40.0
 margin_bottom = 40.0
 texture = SubResource( 3 )
 
-[node name="Instructions" type="Label" parent="."]
-margin_left = 340.0
-margin_top = 212.0
-margin_right = 380.0
-margin_bottom = 226.0
-text = "Hold "
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+modulate = Color( 0.611765, 0.32549, 0.32549, 1 )
+material = SubResource( 7 )
+margin_left = 230.0
+margin_top = 134.0
+margin_right = 323.0
+margin_bottom = 158.0
+text = "Shoot me xd"
 
-[node name="Mutsu" type="Area2D" parent="."]
-position = Vector2( 11, 289 )
+[node name="Player" type="Node2D" parent="."]
 script = ExtResource( 1 )
-__meta__ = {
-"_edit_group_": true
-}
 
-[node name="RigidBody2D" type="RigidBody2D" parent="Mutsu"]
+[node name="Mutsu" type="RigidBody2D" parent="Player"]
+position = Vector2( 50, 289 )
 mode = 2
+gravity_scale = 3.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Mutsu/RigidBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player/Mutsu"]
 rotation = 1.5708
 shape = SubResource( 6 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="Mutsu"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player/Mutsu"]
+light_mask = 0
 frames = SubResource( 4 )
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="Platform" type="StaticBody2D" parent="."]
 position = Vector2( 1, -298 )
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2( 512, 608 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Platform"]
+position = Vector2( 255, 608 )
 shape = SubResource( 5 )
