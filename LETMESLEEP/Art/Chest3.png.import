@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Mutsu.png-87482ace77db0b245447fab685afcb0e.stex"
+path="res://.import/Chest3.png-aa64fc6ff61f46c5fecb5f61a1f1794a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Mutsu.png"
-dest_files=[ "res://.import/Mutsu.png-87482ace77db0b245447fab685afcb0e.stex" ]
+source_file="res://Art/Chest3.png"
+dest_files=[ "res://.import/Chest3.png-aa64fc6ff61f46c5fecb5f61a1f1794a.stex" ]
 
 [params]
 
