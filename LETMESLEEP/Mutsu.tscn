@@ -1,21 +1,40 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Mutsu.gd" type="Script" id=1]
-[ext_resource path="res://Art/Mutsu.png" type="Texture" id=3]
+[ext_resource path="res://Art/Sounds/shortpop.mp3" type="AudioStream" id=2]
+[ext_resource path="res://Art/Mutsu/Mutsu.png" type="Texture" id=3]
+[ext_resource path="res://Art/Mutsu/MutsuBlink.png" type="Texture" id=4]
+[ext_resource path="res://Art/Mutsu/Hats2.png" type="Texture" id=5]
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="CapsuleShape2D" id=5]
+radius = 6.0
+height = 6.0
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "blink",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
-"name": "default",
+"name": "idle",
+"speed": 5.0
+} ]
+
+[sub_resource type="SpriteFrames" id=6]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Hat",
 "speed": 5.0
 } ]
 
 [node name="Mutsu" type="RigidBody2D"]
+position = Vector2( 0, -2 )
 mode = 2
-gravity_scale = 5.0
+gravity_scale = 7.0
 custom_integrator = true
 contacts_reported = 3
 contact_monitor = true
@@ -26,13 +45,40 @@ __meta__ = {
 "_edit_group_": true
 }
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-rotation = 1.5708
-shape = SubResource( 6 )
+[node name="Collision" type="CollisionShape2D" parent="."]
+position = Vector2( -0.5, 1 )
+shape = SubResource( 5 )
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.2, 0.2 )
+
+[node name="Sprite" type="Node2D" parent="."]
+
+[node name="Character" type="AnimatedSprite" parent="Sprite"]
 light_mask = 0
 frames = SubResource( 4 )
+animation = "blink"
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2( 0.1, 0.1 )
+[node name="Hat" type="AnimatedSprite" parent="Sprite"]
+frames = SubResource( 6 )
+animation = "Hat"
+
+[node name="WalkingPace" type="Timer" parent="Sprite"]
+wait_time = 0.1
+autostart = true
+
+[node name="Blink" type="Timer" parent="Sprite"]
+wait_time = 6.3
+autostart = true
+
+[node name="Blinking" type="Timer" parent="Sprite"]
+wait_time = 0.2
+
+[node name="Walking" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 2 )
+volume_db = -30.0
+
+[connection signal="timeout" from="Sprite/WalkingPace" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="Sprite/Blink" to="." method="_on_Blink_timeout"]
+[connection signal="timeout" from="Sprite/Blinking" to="." method="_on_Blinking_timeout"]

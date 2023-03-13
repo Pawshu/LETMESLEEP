@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Chest4.png-ebe87069773001c3f24a6a5d8d01de8b.stex"
+path="res://.import/Hats1.png-5e03adef68475524dbcc1e33c9dbe200.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Chest4.png"
-dest_files=[ "res://.import/Chest4.png-ebe87069773001c3f24a6a5d8d01de8b.stex" ]
+source_file="res://Art/Mutsu/Hats1.png"
+dest_files=[ "res://.import/Hats1.png-5e03adef68475524dbcc1e33c9dbe200.stex" ]
 
 [params]
 

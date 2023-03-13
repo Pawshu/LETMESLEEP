@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Chest2.png-290a80b42097c92ecd412563604d777e.stex"
+path="res://.import/PirateTextures1.png-b7ca9f9396ef498e86c1e4e0f229b589.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Chest2.png"
-dest_files=[ "res://.import/Chest2.png-290a80b42097c92ecd412563604d777e.stex" ]
+source_file="res://Art/Pirate/PirateTextures1.png"
+dest_files=[ "res://.import/PirateTextures1.png-b7ca9f9396ef498e86c1e4e0f229b589.stex" ]
 
 [params]
 

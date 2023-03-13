@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/walkingpop.mp3-945d06e8932ba387a82c9324e24ca7f8.mp3str"
+
+[deps]
+
+source_file="res://Art/Sounds/walkingpop.mp3"
+dest_files=[ "res://.import/walkingpop.mp3-945d06e8932ba387a82c9324e24ca7f8.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

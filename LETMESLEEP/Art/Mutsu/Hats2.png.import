@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Chest1.png-0c5018bb84150e3a92ad410fd402071b.stex"
+path="res://.import/Hats2.png-4d7be6159c53002178196efcc30d8570.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Chest1.png"
-dest_files=[ "res://.import/Chest1.png-0c5018bb84150e3a92ad410fd402071b.stex" ]
+source_file="res://Art/Mutsu/Hats2.png"
+dest_files=[ "res://.import/Hats2.png-4d7be6159c53002178196efcc30d8570.stex" ]
 
 [params]
 
@@ -24,7 +24,7 @@ flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
-process/fix_alpha_border=false
+process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
 process/invert_color=false
