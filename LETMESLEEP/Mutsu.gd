@@ -105,7 +105,7 @@ func _integrate_forces(state):
 		 print(state.get_linear_velocity())
 		
 
-func _on_Timer_timeout():
+func on_Timer_timeout():
 	if moving == true:
 		$Walking.playing = true
 		if $Sprite.rotation == 0:
@@ -116,10 +116,10 @@ func _on_Timer_timeout():
 			$Sprite.rotation = ROTATE_AMOUNT
 
 
-func _on_Blink_timeout():
+func on_Blink_timeout():
 	$Sprite/Character.animation = "blink"
 	$Sprite/Blinking.start()
 
 
-func _on_Blinking_timeout():
+func on_Blinking_timeout():
 	$Sprite/Character.animation = "idle"

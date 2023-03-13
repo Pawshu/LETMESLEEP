@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Mutsu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sounds/shortpop.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Art/Mutsu/Mutsu.png" type="Texture" id=3]
 [ext_resource path="res://Art/Mutsu/MutsuBlink.png" type="Texture" id=4]
 [ext_resource path="res://Art/Mutsu/Hats2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Sounds/walkingpop.mp3" type="AudioStream" id=6]
+
+[sub_resource type="PhysicsMaterial" id=7]
+friction = 0.0
 
 [sub_resource type="CapsuleShape2D" id=5]
 radius = 6.0
@@ -34,7 +38,8 @@ animations = [ {
 [node name="Mutsu" type="RigidBody2D"]
 position = Vector2( 0, -2 )
 mode = 2
-gravity_scale = 7.0
+physics_material_override = SubResource( 7 )
+gravity_scale = 12.0
 custom_integrator = true
 contacts_reported = 3
 contact_monitor = true
@@ -79,6 +84,11 @@ wait_time = 0.2
 stream = ExtResource( 2 )
 volume_db = -30.0
 
-[connection signal="timeout" from="Sprite/WalkingPace" to="." method="_on_Timer_timeout"]
-[connection signal="timeout" from="Sprite/Blink" to="." method="_on_Blink_timeout"]
-[connection signal="timeout" from="Sprite/Blinking" to="." method="_on_Blinking_timeout"]
+[node name="Appearing" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 5.0
+pitch_scale = 1.1
+
+[connection signal="timeout" from="Sprite/WalkingPace" to="." method="on_Timer_timeout"]
+[connection signal="timeout" from="Sprite/Blink" to="." method="on_Blink_timeout"]
+[connection signal="timeout" from="Sprite/Blinking" to="." method="on_Blinking_timeout"]
