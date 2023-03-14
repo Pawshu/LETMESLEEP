@@ -1,7 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Mutsu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://SceneManager.gd" type="Script" id=2]
+[ext_resource path="res://UI.gd" type="Script" id=3]
+[ext_resource path="res://Art/Fonts/Super-Mario-Bros--3.ttf" type="DynamicFontData" id=4]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 154.5, 10 )
@@ -9,14 +11,17 @@ extents = Vector2( 154.5, 10 )
 [sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 10, 94 )
 
+[sub_resource type="DynamicFont" id=8]
+outline_color = Color( 0, 0, 0, 1 )
+font_data = ExtResource( 4 )
+
 [node name="Tutorial" type="Node2D"]
-position = Vector2( 4, 0 )
 
 [node name="Scene" type="Node2D" parent="."]
 script = ExtResource( 2 )
 
 [node name="Mutsu" parent="Scene" instance=ExtResource( 1 )]
-position = Vector2( 155, 558 )
+position = Vector2( 154, -35 )
 gravity_scale = 10.0
 WALK_SPEED = 200.0
 AIR_SPEED = 250.0
@@ -29,17 +34,16 @@ __meta__ = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Platform"]
 modulate = Color( 0, 0, 0, 1 )
-position = Vector2( 152.5, 608 )
+position = Vector2( 152, 9 )
 shape = SubResource( 5 )
 
 [node name="RightWall" type="StaticBody2D" parent="Scene"]
-position = Vector2( 373, 528 )
+position = Vector2( 319, -93 )
 __meta__ = {
 "_edit_group_": true
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/RightWall"]
-position = Vector2( -54, -16 )
 shape = SubResource( 6 )
 
 [node name="LeftWall" type="StaticBody2D" parent="Scene"]
@@ -49,17 +53,50 @@ __meta__ = {
 }
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/LeftWall"]
-position = Vector2( -54, -16 )
+position = Vector2( -53, -618 )
 shape = SubResource( 6 )
 
+[node name="UI" type="Node2D" parent="Scene"]
+script = ExtResource( 3 )
+
+[node name="MoveLabel" type="RichTextLabel" parent="Scene/UI"]
+margin_left = 51.0
+margin_top = -166.0
+margin_right = 151.0
+margin_bottom = -100.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "move
+  [img={35}]Art/arrowKeys.png[/img]
+"
+text = "move
+  
+"
+scroll_active = false
+
+[node name="JumpLabel" type="RichTextLabel" parent="Scene/UI"]
+margin_left = 174.0
+margin_top = -165.0
+margin_right = 262.0
+margin_bottom = -129.0
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "[right]jump[/right]
+         [img=30]Art/spaceBarIcon.png[/img]"
+text = "jump
+         "
+scroll_active = false
+
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2( 154, 509 )
+position = Vector2( 154, -89 )
 current = true
 zoom = Vector2( 0.3, 0.3 )
 
-[node name="Timer" type="Timer" parent="."]
+[node name="SpawnTimer" type="Timer" parent="."]
 wait_time = 2.0
 one_shot = true
 autostart = true
 
-[connection signal="timeout" from="Timer" to="Scene" method="activateGame" flags=6]
+[connection signal="timeout" from="SpawnTimer" to="Scene" method="activateGame" flags=6]

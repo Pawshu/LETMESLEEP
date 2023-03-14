@@ -86,7 +86,7 @@ volume_db = -30.0
 
 [node name="Appearing" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 6 )
-volume_db = 5.0
+volume_db = -10.0
 pitch_scale = 1.1
 
 [connection signal="timeout" from="Sprite/WalkingPace" to="." method="on_Timer_timeout"]
