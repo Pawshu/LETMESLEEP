@@ -12,7 +12,9 @@ func _ready():
 	remove_child(player)
 	remove_child(UI)
 	
+	
 func activateGame():
 	add_child(player)
 	add_child(UI)
 	player.get_node("Appearing").playing = true
+	$Mutsu/Sprite/Hat.animation = "none"

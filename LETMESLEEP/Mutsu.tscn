@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Mutsu.gd" type="Script" id=1]
 [ext_resource path="res://Art/Sounds/shortpop.mp3" type="AudioStream" id=2]
@@ -6,6 +6,8 @@
 [ext_resource path="res://Art/Mutsu/MutsuBlink.png" type="Texture" id=4]
 [ext_resource path="res://Art/Mutsu/Hats2.png" type="Texture" id=5]
 [ext_resource path="res://Art/Sounds/walkingpop.mp3" type="AudioStream" id=6]
+[ext_resource path="res://Art/Mutsu/Hats1.png" type="Texture" id=7]
+[ext_resource path="res://Art/Mutsu/None.png" type="Texture" id=8]
 
 [sub_resource type="PhysicsMaterial" id=7]
 friction = 0.0
@@ -29,9 +31,19 @@ animations = [ {
 
 [sub_resource type="SpriteFrames" id=6]
 animations = [ {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "fancy",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "none",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "Hat",
+"name": "pirate",
 "speed": 5.0
 } ]
 
@@ -67,7 +79,7 @@ animation = "blink"
 
 [node name="Hat" type="AnimatedSprite" parent="Sprite"]
 frames = SubResource( 6 )
-animation = "Hat"
+animation = "none"
 
 [node name="WalkingPace" type="Timer" parent="Sprite"]
 wait_time = 0.1

@@ -11,5 +11,5 @@ dest_files=[ "res://.import/existence_pop.mp3-a6799f0d829e5c84cbc7330e8fbbffc5.m
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
