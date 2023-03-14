@@ -41,4 +41,5 @@ frame = 6
 playing = true
 
 [node name="Mutsu" parent="." instance=ExtResource( 7 )]
-position = Vector2( 37, -19 )
+position = Vector2( 36, 6 )
+gravity_scale = 10.0

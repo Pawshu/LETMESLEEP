@@ -18,3 +18,6 @@ func activateGame():
 	add_child(UI)
 	player.get_node("Appearing").playing = true
 	$Mutsu/Sprite/Hat.animation = "none"
+
+func transitionToPirate():
+	get_tree().change_scene_to(load('res://Pirates.tscn'))

@@ -19,9 +19,18 @@ func _ready():
 
 func _input(event):
 	if event.is_action_pressed("move_right") || event.is_action_pressed("move_left"):
-		moveFlag = true
 		moveCheckLabel.set("custom_colors/default_color", Color(0,1,0,1))
+		if(!moveFlag):
+			$LabelDing.play()
+		moveFlag = true
 	if event.is_action_pressed("jump"):
-		jumpFlag = true
 		jumpCheckLabel.set("custom_colors/default_color", Color(0,1,0,1))
+		if(!jumpFlag):
+			$LabelDing.play()
+		jumpFlag = true
 
+func _process(delta):
+	if(jumpFlag && moveFlag):
+		passedTimer += delta
+	if(passedTimer > 3.0):
+		get_parent().transitionToPirate()
