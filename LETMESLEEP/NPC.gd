@@ -12,6 +12,10 @@ func _ready():
 	$Height/Sprite.animation = SKIN
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _on_Blink_timeout():
+	$Height/Sprite.frame = 1
+	$Blinking.start()
+
+
+func _on_Blinking_timeout():
+	$Height/Sprite.frame = 0

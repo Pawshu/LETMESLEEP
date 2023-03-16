@@ -1,41 +1,47 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=16 format=2]
 
-[ext_resource path="res://Art/Pirate/Alphonso.png" type="Texture" id=1]
-[ext_resource path="res://Art/Pirate/Kiwi.png" type="Texture" id=2]
-[ext_resource path="res://Art/Pirate/Dargon.png" type="Texture" id=3]
-[ext_resource path="res://Art/Pirate/Capn.png" type="Texture" id=4]
-[ext_resource path="res://Art/Pirate/Berry.png" type="Texture" id=5]
-[ext_resource path="res://Art/Pirate/Nana.png" type="Texture" id=6]
+[ext_resource path="res://Art/Pirate/Dargon2.png" type="Texture" id=1]
+[ext_resource path="res://Art/Pirate/Capn1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Pirate/Berry1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Pirate/Alphonso2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Pirate/Nana1.png" type="Texture" id=5]
+[ext_resource path="res://Art/Pirate/Alphonso1.png" type="Texture" id=6]
 [ext_resource path="res://NPC.gd" type="Script" id=7]
+[ext_resource path="res://Art/Pirate/Dargon1.png" type="Texture" id=8]
+[ext_resource path="res://Art/Pirate/Nana2.png" type="Texture" id=9]
+[ext_resource path="res://Art/Pirate/Kiwi2.png" type="Texture" id=10]
+[ext_resource path="res://Art/Pirate/Kiwi1.png" type="Texture" id=11]
+[ext_resource path="res://Art/Pirate/Berry2.png" type="Texture" id=12]
+[ext_resource path="res://Art/Pirate/Capn2.png" type="Texture" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "alphonso",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 12 ) ],
 "loop": true,
 "name": "berry",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 2 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "capn",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 8 ), ExtResource( 1 ) ],
 "loop": true,
 "name": "dargon",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 11 ), ExtResource( 10 ) ],
 "loop": true,
 "name": "kiwi",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 9 ) ],
 "loop": true,
 "name": "nana",
 "speed": 5.0
@@ -58,3 +64,13 @@ animation = "alphonso"
 [node name="Collision" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2 )
 shape = SubResource( 2 )
+
+[node name="Blink" type="Timer" parent="."]
+wait_time = 5.5
+autostart = true
+
+[node name="Blinking" type="Timer" parent="."]
+wait_time = 0.2
+
+[connection signal="timeout" from="Blink" to="." method="_on_Blink_timeout"]
+[connection signal="timeout" from="Blinking" to="." method="_on_Blinking_timeout"]
