@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/seven-seas-sea-shanty-13745.mp3-c9024289f9584c0daf3d4b1d171dc11d.mp3str"
+
+[deps]
+
+source_file="res://Art/Music/seven-seas-sea-shanty-13745.mp3"
+dest_files=[ "res://.import/seven-seas-sea-shanty-13745.mp3-c9024289f9584c0daf3d4b1d171dc11d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
