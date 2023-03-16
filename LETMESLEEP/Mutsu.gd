@@ -108,12 +108,12 @@ func _integrate_forces(state):
 func on_Timer_timeout():
 	if moving == true:
 		$Walking.playing = true
-		## if $Sprite.rotation == 0:
-			## $Sprite.rotation = -ROTATE_AMOUNT
-		## if $Sprite.rotation > 0:
-			## $Sprite.rotation = -ROTATE_AMOUNT
-		## elif $Sprite.rotation < 0:
-			## $Sprite.rotation = ROTATE_AMOUNT
+		if $Sprite.rotation == 0:
+			$Sprite.rotation = -ROTATE_AMOUNT
+		if $Sprite.rotation > 0:
+			$Sprite.rotation = -ROTATE_AMOUNT
+		elif $Sprite.rotation < 0:
+			$Sprite.rotation = ROTATE_AMOUNT
 
 
 func on_Blink_timeout():
